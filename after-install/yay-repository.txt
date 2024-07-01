@@ -1,0 +1,4 @@
+google-chrome
+swaylock-effects
+zsh-completions
+zsh-syntax-highlighting

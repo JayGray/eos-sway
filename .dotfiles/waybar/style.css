@@ -1,0 +1,208 @@
+/* =============================================================================
+ *
+ * Waybar configuration
+ *
+ * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+ *
+ * =========================================================================== */
+
+/* -----------------------------------------------------------------------------
+ * Keyframes
+ * -------------------------------------------------------------------------- */
+
+/*
+Tommorow Color Scheme
+*/
+@define-color foreground #4d4d4c;
+@define-color background #ffffff;
+@define-color red #c82829;
+@define-color orange #f5871f;
+@define-color green #718c00;
+@define-color blue #4271ae;
+@define-color window #efefef;
+
+@keyframes blink-warning {
+  70% {
+    color: @foreground;
+  }
+
+  to {
+    color: @foreground;
+    background-color: @orange;
+  }
+}
+
+@keyframes blink-critical {
+  70% {
+    color: @foreground;
+  }
+
+  to {
+    color: @foreground;
+    background-color: @red;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * Base styles
+ * -------------------------------------------------------------------------- */
+
+/* Reset all styles */
+* {
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* The whole bar */
+#waybar {
+  color: @foreground;
+  background-color: @window;
+  font-family: JetBrains Mono;
+  font-size: 12px;
+}
+
+/* Every modules */
+#battery,
+#clock,
+#backlight,
+#cpu,
+#custom-keyboard-layout,
+#memory,
+#mode,
+#custom-weather,
+#network,
+#pulseaudio,
+#temperature,
+#tray,
+#idle_inhibitor,
+#custom-PBPbattery {
+  padding: 0 0.3rem;
+}
+
+/* -----------------------------------------------------------------------------
+ * Modules styles
+ * -------------------------------------------------------------------------- */
+
+#tray {
+  background-color: @blue;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @red;
+}
+
+#battery {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#battery.warning {
+  color: @orange;
+}
+
+#battery.critical {
+  color: @red;
+}
+
+#battery.warning.discharging {
+  animation-name: blink-warning;
+  animation-duration: 3s;
+}
+
+#battery.critical.discharging {
+  animation-name: blink-critical;
+  animation-duration: 2s;
+}
+
+#cpu.warning {
+  color: @orange;
+}
+
+#cpu.critical {
+  color: @red;
+}
+
+#memory {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#memory.warning {
+  color: @orange;
+}
+
+#memory.critical {
+  color: @red;
+  animation-name: blink-critical;
+  animation-duration: 2s;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mode {
+  background: @blue;
+  border-bottom: 3px transparent;
+  color: @foreground;
+  margin-left: 5px;
+  padding: 7px;
+}
+
+#network.disconnected {
+  color: @orange;
+}
+
+#pulseaudio.muted {
+  color: @blue;
+}
+
+#temperature.critical {
+  color: @red;
+}
+
+#window {
+  font-weight: bold;
+}
+
+#workspaces button {
+  color: @foreground;
+  border: 1px solid @blue;
+  margin: 0;
+  padding: 0;
+}
+
+#workspaces button.focused {
+  color: @background;
+  background-color: @blue;
+}
+
+#workspaces button.urgent {
+  border-color: @red;
+}
+
+#custom-power {
+  color: @orange;
+  margin-left: 15px;
+  margin-right: 15px;
+  font-size: 15px;
+}
+
+#custom-launcher {
+  color: @blue;
+  font-size: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#backlight.icon {
+  padding-right: 1px;
+}

@@ -1,0 +1,51 @@
+/*
+Tommorow Color Scheme
+*/
+@define-color foreground #4d4d4c;
+@define-color background #ffffff;
+@define-color red #c82829;
+@define-color orange #f5871f;
+@define-color green #718c00;
+@define-color blue #4271ae;
+@define-color window #efefef;
+
+* {
+    font-family: JetBrains Mono;
+}
+
+window {
+    background-color: @window;
+    border: 1px solid @blue;
+}
+
+#input {
+    margin-bottom: 15px;
+    padding: 3px;
+    border-radius: 5px;
+    border: none;
+    color: @blue;
+    background-color: @background;
+}
+
+#inner-box {
+    background-color: @window;
+}
+
+#outer-box {
+    margin: 5px;
+    padding: 5px;
+    background-color: @window;
+}
+
+#text {
+    padding: 5px;
+    color: @foreground;
+}
+
+#entry:selected {
+    background-color: @blue;
+}
+
+#entry:selected #text {
+    color: @window;
+}

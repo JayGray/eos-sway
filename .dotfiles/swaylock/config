@@ -1,0 +1,18 @@
+ignore-empty-password
+daemonize
+clock
+indicator
+line-uses-inside
+indicator-radius=120
+indicator-thickness=8
+screenshots
+effect-blur=5x3
+effect-vignette=0.5:0.5
+fade-in=0.2
+font=JetBrains Mono
+font-size=24
+inside-color=efefef
+inside-wrong-color=c82829
+inside-ver-color=4271ae
+ring-color=4271ae
+key-hl-color=718c00
